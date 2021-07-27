@@ -2,22 +2,18 @@
 Description: 
 Version: 1.0
 Autor: Zhangzixu
-Date: 2021-07-27 10:25:54
+Date: 2020-07-18 16:34:11
 LastEditors: Zhangzixu
-LastEditTime: 2021-07-27 13:01:29
+LastEditTime: 2021-07-27 13:04:05
 '''
 import requests
 import splitvalue
-#from bs4 import BeautifulSoup
 import json
 import csv
 import time
 import sys
 from pyqtgraph.Qt import QtGui, QtCore
-# import pyqtgraph as pg
 import numpy as np
-
-# headers = {"User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36 Edge/15.15063"}
 xdictValue = np.load('xdict.npy', allow_pickle=True).item()
 
 print(time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime()))
@@ -54,5 +50,5 @@ for k in range(len(TimeValue)):
     except:
         print(k, "error")
 
-if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
-    QtGui.QApplication.instance().exec_()
+# if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
+#     QtGui.QApplication.instance().exec_()

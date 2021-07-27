@@ -3,13 +3,7 @@ import csv
 from pyqtgraph.Qt import QtGui, QtCore
 import numpy as np
 import pyqtgraph as pg
-import requests
-import json
 import pyqtgraph.exporters
-#app = QtGui.QApplication([])
-
-# label = pg.LabelItem(justify='right')
-# win.addItem(label)
 
 
 def SplitTimeValue(OriginValue):
@@ -76,8 +70,8 @@ def PlotCurve(xdict, StockData, TitleName, Rate, Price):
 
     x = np.where(Price == Price.max())[0][0]
     color = SlectColor(StockData[x])
-    ShowMax = '<div style="text-align: center"><span style="color: #FFF; font-size: 18pt;">' + str(f'{Price[x]:.2f} RMB') + '</span><br><span style="color: {}; font-size: 18pt;">'.format(
-        color) + str(f'{StockData[x]:.2f}%') + '</span></div>'
+    ShowMax = '<div style="text-align: center"><span style="color: #FFF; font-size: 18pt;">' + str(f'{Price[x]:.2f} RMB') + '</span><br><span style="color: {}; font-size: 18pt;">'.format(color) + str(
+        f'{StockData[x]:.2f}%') + '</span></div>'
     TextMax = pg.TextItem(html=ShowMax, anchor=(-0.3, 0.5))
     plot.addItem(TextMax)
 
