@@ -62,8 +62,8 @@ def PlotCurve(xdict, StockData, TitleName, Rate, Price):
     color = SlectColor(StockData[-1])
     plot = win.addPlot(title='<div style="text-align: center"><span style="color: {}; font-size: 20pt;">'.format(color) + '<b>' + TitleName + '</b>', axisItems={'bottom': stringaxis})
 
-    ShowRate = '<div style="text-align: center"><span style="color: #FFF; font-size: 18pt;">' + str(f'{Price[x]:.2f} RMB') + '</span><br><span style="color: #FF0; font-size: 18pt;">' + str(
-        f'{StockData[x]:.2f}%') + '</span></div>'
+    ShowRate = '<div style="text-align: center"><span style="color: #FFF; font-size: 18pt;">' + str(f'{Price[x]:.2f} RMB') + '</span><br><span style="color: {}; font-size: 18pt;">'.format(
+        color) + str(f'{StockData[x]:.2f}%') + '</span></div>'
     text = pg.TextItem(html=ShowRate, anchor=(0, 0), angle=0)
     plot.addItem(text)
     text.setPos(x, StockData[x])
