@@ -2,9 +2,9 @@
 Description: 
 Version: 1.0
 Autor: Zhangzixu
-Date: 2020-07-18 16:34:11
+Date: 2021-07-28 11:42:20
 LastEditors: Zhangzixu
-LastEditTime: 2021-07-27 13:04:05
+LastEditTime: 2021-07-28 11:42:35
 '''
 import requests
 import splitvalue
@@ -29,7 +29,9 @@ rows = csv.reader(sFileName)
 j = 0
 for row in rows:
     try:
-        data = requests.get('http://fund.10jqka.com.cn/data/client/myfund/{}/'.format(row[0]))
+        FundNum = row[0].zfill(6)
+        print(FundNum)
+        data = requests.get('http://fund.10jqka.com.cn/data/client/myfund/{}/'.format(FundNum))
         FundData = json.loads(data.text)['data'][0]
         FundName = FundData['name']
         hqcode = FundData['hqcode']
@@ -40,7 +42,7 @@ for row in rows:
         TitleName[j] = FundName
         j += 1
     except:
-        print(row, "error")
+        print(FundNum, "error")
 
 #splitvalue.DrawSZ()
 for k in range(len(TimeValue)):
