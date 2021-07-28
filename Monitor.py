@@ -52,5 +52,5 @@ for k in range(len(TimeValue)):
     except:
         print(k, "error")
 
-if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
+if ((sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION')) and sys.platform == 'win32':
     QtGui.QApplication.instance().exec_()
