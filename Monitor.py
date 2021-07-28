@@ -30,7 +30,6 @@ j = 0
 for row in rows:
     try:
         FundNum = row[0].zfill(6)
-        print(FundNum)
         data = requests.get('http://fund.10jqka.com.cn/data/client/myfund/{}/'.format(FundNum))
         FundData = json.loads(data.text)['data'][0]
         FundName = FundData['name']
@@ -40,6 +39,7 @@ for row in rows:
         data = requests.get(url)
         TimeValue[j] = data.content.decode('utf-8')
         TitleName[j] = FundName
+
         j += 1
     except:
         print(FundNum, "error")
@@ -49,6 +49,7 @@ for k in range(len(TimeValue)):
     try:
         xdict, StockData, Rate, ref, Price = splitvalue.SplitTimeValue(TimeValue[k])
         splitvalue.PlotCurve(xdictValue, StockData, TitleName[k], Rate, Price)
+        print(TitleName[k], Rate)
     except:
         print(k, "error")
 

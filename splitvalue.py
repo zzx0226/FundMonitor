@@ -71,9 +71,9 @@ def PlotCurve(xdict, StockData, TitleName, Rate, Price):
     triangle = ReturnTriangle(StockData[-1])
     plot = win.addPlot(title='<div style="text-align: center"><span style="color: {}; font-size: 25pt;">'.format(color) + '<b>' + TitleName + str(f'      {triangle}{StockData[x]:.2f}%') + '</b>',
                        axisItems={'bottom': stringaxis})
-
+    PriceChangeRate = str(f'{StockData[x]:.2f}%')
     ShowRate = '<div style="text-align: center"><span style="color: #FFF; font-size: 18pt;">' + str(f'{Price[x]:.2f} RMB') + '</span><br><span style="color: {}; font-size: 18pt;">'.format(
-        color) + str(f'{StockData[x]:.2f}%') + '</span></div>'
+        color) + PriceChangeRate + '</span></div>'
     text = pg.TextItem(html=ShowRate, anchor=(0, 0), angle=0)
     plot.addItem(text)
     text.setPos(x, StockData[x])
@@ -99,6 +99,7 @@ def PlotCurve(xdict, StockData, TitleName, Rate, Price):
     curve = plot.plot(StockData, pen=pg.mkPen(color='w', width=2))
     ex = pyqtgraph.exporters.ImageExporter(win.scene())
     ex.export(fileName="/home/pi/MagicMirror/modules/MMM-EasyPix/pix/1.jpg")
+    # return PriceChangeRate
 
 
 def ConfirmRow():
