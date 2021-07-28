@@ -97,8 +97,9 @@ def PlotCurve(xdict, StockData, TitleName, Rate, Price):
     TextMin.setPos(x, StockData[x])
 
     curve = plot.plot(StockData, pen=pg.mkPen(color='w', width=2))
-    ex = pyqtgraph.exporters.ImageExporter(win.scene())
-    ex.export(fileName="/home/pi/MagicMirror/modules/MMM-EasyPix/pix/1.jpg")
+    if sys.platform != 'win32':
+        ex = pyqtgraph.exporters.ImageExporter(win.scene())
+        ex.export(fileName="/home/pi/MagicMirror/modules/MMM-EasyPix/pix/1.jpg")
     # return PriceChangeRate
 
 

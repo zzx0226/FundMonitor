@@ -4,6 +4,14 @@ Version: 1.0
 Autor: Zhangzixu
 Date: 2021-07-28 11:42:20
 LastEditors: Zhangzixu
+LastEditTime: 2021-07-28 15:16:19
+'''
+'''
+Description: 
+Version: 1.0
+Autor: Zhangzixu
+Date: 2021-07-28 11:42:20
+LastEditors: Zhangzixu
 LastEditTime: 2021-07-28 11:42:35
 '''
 import requests
@@ -44,7 +52,6 @@ for row in rows:
     except:
         print(FundNum, "error")
 
-#splitvalue.DrawSZ()
 for k in range(len(TimeValue)):
     try:
         xdict, StockData, Rate, ref, Price = splitvalue.SplitTimeValue(TimeValue[k])
