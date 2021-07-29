@@ -56,16 +56,14 @@ for j, row in enumerate(rows):
         FundName = FundData['name']
         hqcode = FundData['hqcode']
         url = "http://gz-fund.10jqka.com.cn/?module=api&controller=index&action=chart&info=vm_fd_{}&start=0930&".format(hqcode)
-
         data = requests.get(url)
-        # TimeValue[j] = data.content.decode('utf-8')
         TitleName[j] = FundName
         xdict, StockData[j], Rate[j], Price[j], Values[j] = splitvalue.SplitTimeValue(data.content.decode('utf-8'))
-        print(TitleName[j], Rate[j])
+        # print(TitleName[j], Rate[j])
 
     except:
         print(FundNum, "error")
-        
+
 NewSort = sorted(Values, reverse=True)
 Values = np.array(Values)
 
