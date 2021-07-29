@@ -39,7 +39,7 @@ def SplitTimeValue(OriginValue):
     Rate = f'{Value:.2f} %'
     xdict = dict(enumerate(TimeList))
 
-    return xdict, ValueArray, Rate, ref, Price
+    return xdict, ValueArray, Rate, Price, Value
 
 
 def SlectColor(rate):
@@ -58,7 +58,7 @@ def ReturnTriangle(rate):
     return triangle
 
 
-def PlotCurve(xdict, StockData, TitleName, Rate, Price):
+def PlotCurve(xdict, StockData, TitleName, Price):
 
     win.nextRow()
     # Enable antialiasing for prettier plots
@@ -69,7 +69,7 @@ def PlotCurve(xdict, StockData, TitleName, Rate, Price):
     x = len(StockData) - 1
     color = SlectColor(StockData[-1])
     triangle = ReturnTriangle(StockData[-1])
-    plot = win.addPlot(title='<div style="text-align: center"><span style="color: {}; font-size: 25pt;">'.format(color) + '<b>' + TitleName + str(f'      {triangle}{StockData[x]:.2f}%') + '</b>',
+    plot = win.addPlot(title='<div style="text-align: center"><span style="color: {}; font-size: 25pt;">'.format(color) + '<b>' + TitleName + str(f'{triangle}{StockData[x]:.2f}%') + '</b>',
                        axisItems={'bottom': stringaxis})
     PriceChangeRate = str(f'{StockData[x]:.2f}%')
     ShowRate = '<div style="text-align: center"><span style="color: #FFF; font-size: 18pt;">' + str(f'{Price[x]:.2f} RMB') + '</span><br><span style="color: {}; font-size: 18pt;">'.format(
